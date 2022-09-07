@@ -1,0 +1,1067 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 21,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "description": "",
+      "gridPos": {
+        "h": 2,
+        "w": 16,
+        "x": 0,
+        "y": 0
+      },
+      "id": 46,
+      "options": {
+        "content": "<h1><center><u>Portal Health Dashboard",
+        "mode": "html"
+      },
+      "pluginVersion": "9.1.3-5f01ebf",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 16,
+        "x": 0,
+        "y": 2
+      },
+      "id": 17,
+      "options": {
+        "content": "<H4><center>${Name}",
+        "mode": "markdown"
+      },
+      "pluginVersion": "9.1.3-5f01ebf",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "refId": "A"
+        }
+      ],
+      "transparent": true,
+      "type": "text"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "description": "Portal function health",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "Off line",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#73BF69",
+                "value": null
+              },
+              {
+                "color": "blue",
+                "value": 1
+              },
+              {
+                "color": "#EAB839",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 8,
+        "x": 0,
+        "y": 4
+      },
+      "id": 54,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 1,
+          "values": true
+        },
+        "text": {
+          "titleSize": 1
+        },
+        "textMode": "none"
+      },
+      "pluginVersion": "9.1.3-5f01ebf",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "apn_function_status{func=~\".*ptl.*\",name=\"portal\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{appliance_name}}",
+          "refId": "A"
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "description": "Appliance health",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "noValue": "Off line",
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "#73BF69",
+                "value": null
+              },
+              {
+                "color": "blue",
+                "value": 1
+              },
+              {
+                "color": "#EAB839",
+                "value": 2
+              },
+              {
+                "color": "red",
+                "value": 3
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 1,
+        "w": 8,
+        "x": 8,
+        "y": 4
+      },
+      "id": 86,
+      "options": {
+        "colorMode": "background",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "limit": 1,
+          "values": true
+        },
+        "text": {
+          "titleSize": 1
+        },
+        "textMode": "none"
+      },
+      "pluginVersion": "9.1.3-5f01ebf",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "apn_status{func=~\".*ptl.*\"}",
+          "format": "table",
+          "instant": true,
+          "interval": "",
+          "legendFormat": "{{appliance_name}}",
+          "refId": "A"
+        }
+      ],
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisCenteredZero": false,
+            "axisColorMode": "text",
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 40,
+            "gradientMode": "opacity",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "smooth",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "never",
+            "spanNulls": false,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "off"
+            }
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          },
+          "unit": "Bps"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 5,
+        "w": 16,
+        "x": 0,
+        "y": 5
+      },
+      "id": 41,
+      "options": {
+        "legend": {
+          "calcs": [],
+          "displayMode": "list",
+          "placement": "bottom",
+          "showLegend": false
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "avg_over_time(apn_network_interface_rx_speed {job=\"portalaccess\"} [$__interval])",
+          "interval": "5m",
+          "legendFormat": "{{job}} rx {{name}}",
+          "range": true,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "avg_over_time(apn_network_interface_tx_speed {job=\"portalaccess\"} [$__interval])",
+          "hide": false,
+          "interval": "5m",
+          "legendFormat": "{{job}} rx {{name}}",
+          "range": true,
+          "refId": "B"
+        }
+      ],
+      "title": "NIC throughputs",
+      "type": "timeseries"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              }
+            ]
+          }
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 2,
+        "w": 8,
+        "x": 0,
+        "y": 10
+      },
+      "id": 88,
+      "options": {
+        "colorMode": "value",
+        "graphMode": "none",
+        "justifyMode": "auto",
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "textMode": "auto"
+      },
+      "pluginVersion": "9.1.3-5f01ebf",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "expr": "ptl_client{type=\"running\"}",
+          "legendFormat": "__auto",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Running Client instances",
+      "type": "stat"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "custom": {
+            "align": "auto",
+            "displayMode": "auto",
+            "inspect": false
+          },
+          "mappings": [],
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Time"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 197
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "name"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 250
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 9,
+        "w": 8,
+        "x": 8,
+        "y": 10
+      },
+      "id": 84,
+      "options": {
+        "footer": {
+          "enablePagination": false,
+          "fields": "",
+          "reducer": [
+            "sum"
+          ],
+          "show": false
+        },
+        "showHeader": true,
+        "sortBy": []
+      },
+      "pluginVersion": "9.1.3-5f01ebf",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "ptl_dns_proxy_domain",
+          "format": "table",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        }
+      ],
+      "title": "Top Domains",
+      "transformations": [
+        {
+          "id": "filterFieldsByName",
+          "options": {
+            "include": {
+              "names": [
+                "Value",
+                "name"
+              ]
+            }
+          }
+        },
+        {
+          "id": "concatenate",
+          "options": {
+            "frameNameLabel": "frame",
+            "frameNameMode": "label"
+          }
+        }
+      ],
+      "type": "table"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 80
+              },
+              {
+                "color": "semi-dark-red",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "none"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 12
+      },
+      "id": 79,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "last"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.1.3-5f01ebf",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "ptl_client{type=\"used\"}",
+          "instant": true,
+          "legendFormat": "__auto",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "ptl_client{type=\"running\"}",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "{{running}}",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Used Client instances",
+      "transformations": [
+        {
+          "id": "configFromData",
+          "options": {
+            "configRefId": "B",
+            "mappings": [
+              {
+                "fieldName": "{__name__=\"ptl_client\", appliance_id=\"4ae6e82d-9a24-46f7-a81a-9bb3a1ed088e\", appliance_name=\"Portal Access\", collective_id=\"7c0866a6-45a0-4993-884e-874f1582a210\", collective_name=\"PURPLE Collective\", func=\"apn,ptl\", instance=\"194.218.16.22:5556\", job=\"portalaccess\", type=\"running\"}",
+                "handlerKey": "max",
+                "reducerId": "lastNotNull"
+              }
+            ]
+          }
+        }
+      ],
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "continuous-BlYlRd"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "light-yellow",
+                "value": 75
+              },
+              {
+                "color": "orange",
+                "value": 90
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 19
+      },
+      "id": 53,
+      "options": {
+        "orientation": "vertical",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": false
+      },
+      "pluginVersion": "9.1.3-5f01ebf",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "avg_over_time(apn_cpu_usage_percent{job=\"portalaccess\"} [$__interval])",
+          "format": "time_series",
+          "instant": false,
+          "interval": "1m",
+          "legendFormat": " ",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Average CPU usage % (1 min)",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DNS failures"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DNS results"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 19
+      },
+      "id": 81,
+      "options": {
+        "displayMode": "gradient",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.1.3-5f01ebf",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "increase(ptl_dns_proxy_query {type=\"a\",result=\"timedout\"} [1h])+ ignoring (result) increase (ptl_dns_proxy_query {type=\"a\",result=\"notfound\"} [1h]) + ignoring (result) increase(ptl_dns_proxy_query {type=\"a\",result=\"error\"} [1h])",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "DNS failures",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "increase(ptl_dns_proxy_query {type=\"a\",result=\"success\"} [1h]) + ignoring (result) increase (ptl_dns_proxy_query {type=\"a\",result=\"cache\"} [1h])",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "DNS results",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Hourly DNS Proxy activity (a)",
+      "type": "bargauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "description": "Mean available memory usage",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "max": 100,
+          "min": 0,
+          "thresholds": {
+            "mode": "percentage",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "light-orange",
+                "value": 75
+              },
+              {
+                "color": "dark-red",
+                "value": 85
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 0,
+        "y": 26
+      },
+      "id": 11,
+      "options": {
+        "orientation": "auto",
+        "reduceOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showThresholdLabels": false,
+        "showThresholdMarkers": true
+      },
+      "pluginVersion": "9.1.2-ced290a",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": true,
+          "expr": "apn_memory {job=\"portalaccess\",measure=\"percent\"}",
+          "interval": "",
+          "legendFormat": " ",
+          "range": true,
+          "refId": "A"
+        }
+      ],
+      "title": "Memory usage",
+      "type": "gauge"
+    },
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "3_L-oJz7k"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "thresholds"
+          },
+          "decimals": 0,
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              },
+              {
+                "color": "red",
+                "value": 80
+              }
+            ]
+          }
+        },
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DNS failures"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "red",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "DNS results"
+            },
+            "properties": [
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "green",
+                  "mode": "fixed"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      "gridPos": {
+        "h": 7,
+        "w": 8,
+        "x": 8,
+        "y": 26
+      },
+      "id": 85,
+      "options": {
+        "displayMode": "gradient",
+        "minVizHeight": 10,
+        "minVizWidth": 0,
+        "orientation": "horizontal",
+        "reduceOptions": {
+          "calcs": [
+            "lastNotNull"
+          ],
+          "fields": "",
+          "values": false
+        },
+        "showUnfilled": true
+      },
+      "pluginVersion": "9.1.2-ced290a",
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "increase(ptl_dns_proxy_query {type=\"aaaa\",result=\"timedout\"} [1h])+ ignoring (result) increase (ptl_dns_proxy_query {type=\"aaaa\",result=\"notfound\"} [1h]) + ignoring (result) increase(ptl_dns_proxy_query {type=\"aaaa\",result=\"error\"} [1h])",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "DNS failures",
+          "range": false,
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "3_L-oJz7k"
+          },
+          "editorMode": "code",
+          "exemplar": false,
+          "expr": "increase(ptl_dns_proxy_query {type=\"aaaa\",result=\"success\"} [1h]) + ignoring (result) increase (ptl_dns_proxy_query {type=\"aaaa\",result=\"cache\"} [1h])",
+          "hide": false,
+          "instant": true,
+          "legendFormat": "DNS results",
+          "range": false,
+          "refId": "B"
+        }
+      ],
+      "title": "Hourly DNS Proxy activity (aaaa)",
+      "type": "bargauge"
+    }
+  ],
+  "refresh": "30s",
+  "schemaVersion": 37,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": [
+      {
+        "current": {
+          "selected": true,
+          "text": [
+            "Portal Access"
+          ],
+          "value": [
+            "Portal Access"
+          ]
+        },
+        "datasource": {
+          "type": "prometheus",
+          "uid": "3_L-oJz7k"
+        },
+        "definition": "ptl_client",
+        "hide": 0,
+        "includeAll": false,
+        "label": "appliance_name",
+        "multi": true,
+        "name": "Name",
+        "options": [],
+        "query": {
+          "query": "ptl_client",
+          "refId": "StandardVariableQuery"
+        },
+        "refresh": 1,
+        "regex": "/appliance_name=\"(?<value>[^\"]+)/g",
+        "skipUrlSync": false,
+        "sort": 0,
+        "type": "query"
+      }
+    ]
+  },
+  "time": {
+    "from": "now-6h",
+    "to": "now"
+  },
+  "timepicker": {},
+  "timezone": "",
+  "title": "Portal",
+  "uid": "SYBKjVm4z",
+  "version": 16,
+  "weekStart": ""
+}
