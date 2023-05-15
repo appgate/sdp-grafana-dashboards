@@ -2700,7 +2700,7 @@
       {
         "datasource": {
           "type": "prometheus",
-          "uid": "3_L-oJz7k"
+          "uid": "${DS_PROMETHEUS-PURPLE}"
         },
         "filters": [
           {
